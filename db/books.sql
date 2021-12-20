@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-12-2021 a las 19:27:21
+-- Tiempo de generación: 20-12-2021 a las 20:22:05
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.0
 
@@ -18,35 +18,35 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `libros`
+-- Base de datos: `books`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `autores`
+-- Estructura de tabla para la tabla `autor`
 --
 
-CREATE TABLE `autores` (
+CREATE TABLE `autor` (
   `id` int(11) NOT NULL,
-  `nombres` text NOT NULL,
-  `primer apellido` text NOT NULL,
-  `segundo_apellido` text NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp()
+  `name` text NOT NULL,
+  `lastname` text NOT NULL,
+  `age` int(11) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `libros`
+-- Estructura de tabla para la tabla `books`
 --
 
-CREATE TABLE `libros` (
+CREATE TABLE `books` (
   `id` int(11) NOT NULL,
-  `titulo` text NOT NULL,
-  `descripcion` text NOT NULL,
+  `title` text NOT NULL,
+  `description` text NOT NULL,
   `autor` int(11) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -54,15 +54,15 @@ CREATE TABLE `libros` (
 --
 
 --
--- Indices de la tabla `autores`
+-- Indices de la tabla `autor`
 --
-ALTER TABLE `autores`
+ALTER TABLE `autor`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `libros`
+-- Indices de la tabla `books`
 --
-ALTER TABLE `libros`
+ALTER TABLE `books`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -70,15 +70,15 @@ ALTER TABLE `libros`
 --
 
 --
--- AUTO_INCREMENT de la tabla `autores`
+-- AUTO_INCREMENT de la tabla `autor`
 --
-ALTER TABLE `autores`
+ALTER TABLE `autor`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `libros`
+-- AUTO_INCREMENT de la tabla `books`
 --
-ALTER TABLE `libros`
+ALTER TABLE `books`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
